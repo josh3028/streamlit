@@ -201,6 +201,7 @@ def main_run(target, args=None, **kwargs):
     from validators import url
 
     _apply_config_options_from_cli(kwargs)
+    _config._on_config_parsed.send()
 
     _, extension = os.path.splitext(target)
     if extension[1:] not in ACCEPTED_FILE_EXTENSIONS:
